@@ -1,0 +1,11 @@
+[global]
+device=gpu0
+floatX=float32
+optimizer=fast_run
+
+[lib]
+cnmem=1
+
+[nvcc]
+# Work around a fun glibc bug.
+flags=-D_FORCE_INLINES
