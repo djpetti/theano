@@ -1,3 +1,4 @@
+FROM nvidia/cuda
 MAINTAINER Daniel Petti
 
 # Install dependencies.
