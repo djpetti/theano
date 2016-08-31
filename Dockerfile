@@ -1,4 +1,3 @@
-FROM djpetti/ubuntu-cuda:latest
 MAINTAINER Daniel Petti
 
 # Install dependencies.
