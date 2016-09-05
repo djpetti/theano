@@ -1,4 +1,4 @@
-FROM nvidia/cuda
+FROM nvidia/cuda:8.0-cudnn5-devel
 MAINTAINER Daniel Petti
 
 # Install dependencies.
@@ -9,14 +9,6 @@ RUN adduser --disabled-password --gecos '' theano
 RUN passwd -d theano
 RUN adduser theano sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
-# Install CuDNN
-COPY cudnn-8.0-linux-x64-v5.1.tgz /
-RUN tar -xvf /cudnn-8.0-linux-x64-v5.1.tgz
-RUN mv /cuda/include/* /usr/local/cuda/include/
-RUN mv /cuda/lib64/* /usr/local/cuda/lib64/
-RUN rm -rf /cuda/
-RUN rm /cudnn-8.0-linux-x64-v5.1.tgz
 
 # Install CnMem
 RUN git clone https://github.com/NVIDIA/cnmem.git cnmem
